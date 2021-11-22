@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import {
   Route,
   Switch,
@@ -8,6 +9,7 @@ import {
 } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import Chart from "./Chart";
 import Price from "./Price";
 
@@ -144,35 +146,27 @@ interface PriceData {
 }
 
 function Coin() {
-  const [loading, setLoading] = useState(true);
   const { coinID } = useParams<RouteParams>();
   const { state } = useLocation<RouteState>();
-  const [info, setInfo] = useState<InfoData>();
-  const [priceInfo, setPriceInfo] = useState<PriceData>();
   const priceMatch = useRouteMatch("/:coinID/price");
   const chartMatch = useRouteMatch("/:coinID/chart");
 
-  useEffect(() => {
-    (async () => {
-      const infoData = await (
-        await fetch(`https://api.coinpaprika.com/v1/coins/${coinID}`)
-      ).json();
+  const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
+    ["info", coinID],
+    () => fetchCoinInfo(coinID)
+  );
+  const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
+    ["tickers", coinID],
+    () => fetchCoinTickers(coinID)
+  );
 
-      const priceData = await (
-        await fetch(`https://api.coinpaprika.com/v1/tickers/${coinID}`)
-      ).json();
-
-      setInfo(infoData);
-      setPriceInfo(priceData);
-      setLoading(false);
-    })();
-  }, [coinID]);
+  const loading = infoLoading || tickersLoading;
 
   return (
     <Container>
       <Header>
         <Title>
-          {state?.name ? state.name : loading ? "Loading..." : info?.name}
+          {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
       </Header>
       {loading ? (
@@ -182,22 +176,22 @@ function Coin() {
           <Overview>
             <OverviewItem>
               <span>Rank:</span>
-              <span>{info?.rank}</span>
+              <span>{infoData?.rank}</span>
             </OverviewItem>
             <OverviewItem>
               <span>Symbol</span>
-              <span>{info?.symbol}</span>
+              <span>{infoData?.symbol}</span>
             </OverviewItem>
           </Overview>
-          <Description>{info?.description}</Description>
+          <Description>{infoData?.description}</Description>
           <Overview>
             <OverviewItem>
               <span>Total Supply: </span>
-              <span>{priceInfo?.total_supply}</span>
+              <span>{tickersData?.total_supply}</span>
             </OverviewItem>
             <OverviewItem>
               <span>Current Price (USD): </span>
-              <span>{priceInfo?.quotes.USD.price}</span>
+              <span>{tickersData?.quotes.USD.price}</span>
             </OverviewItem>
           </Overview>
 
