@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import {
   Route,
@@ -7,6 +6,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
@@ -32,7 +32,7 @@ const Container = styled.div`
 const Header = styled.header`
   height: 15vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -78,6 +78,21 @@ const Tab = styled.span<{ isActive: boolean }>`
   a {
     display: block;
   }
+`;
+
+const BtnContainer = styled.div`
+  width: 30%;
+`;
+
+const BackBtn = styled.div`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
 `;
 
 interface RouteParams {
@@ -164,10 +179,21 @@ function Coin() {
 
   return (
     <Container>
+      <Helmet>
+        <title>
+          {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+        </title>
+      </Helmet>
       <Header>
+        <BtnContainer>
+          <BackBtn>
+            <Link to="/">&larr;</Link>
+          </BackBtn>
+        </BtnContainer>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
+        <BtnContainer />
       </Header>
       {loading ? (
         <Loader>Loading...</Loader>
@@ -191,7 +217,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Current Price (USD): </span>
-              <span>{tickersData?.quotes.USD.price}</span>
+              <span>${tickersData?.quotes.USD.price.toFixed(2)}</span>
             </OverviewItem>
           </Overview>
 
@@ -209,7 +235,7 @@ function Coin() {
               <Price />
             </Route>
             <Route path={`/:coinID/chart`}>
-              <Chart />
+              <Chart coinID={coinID} />
             </Route>
           </Switch>
         </>
