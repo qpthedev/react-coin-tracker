@@ -4,14 +4,14 @@
     "main.js.map": "/react-crypto-tracker/static/js/main.d6b8025e.chunk.js.map",
     "runtime-main.js": "/react-crypto-tracker/static/js/runtime-main.b2e7bc00.js",
     "runtime-main.js.map": "/react-crypto-tracker/static/js/runtime-main.b2e7bc00.js.map",
-    "static/js/2.e4caf27d.chunk.js": "/react-crypto-tracker/static/js/2.e4caf27d.chunk.js",
-    "static/js/2.e4caf27d.chunk.js.map": "/react-crypto-tracker/static/js/2.e4caf27d.chunk.js.map",
+    "static/js/2.506ee9cd.chunk.js": "/react-crypto-tracker/static/js/2.506ee9cd.chunk.js",
+    "static/js/2.506ee9cd.chunk.js.map": "/react-crypto-tracker/static/js/2.506ee9cd.chunk.js.map",
     "index.html": "/react-crypto-tracker/index.html",
-    "static/js/2.e4caf27d.chunk.js.LICENSE.txt": "/react-crypto-tracker/static/js/2.e4caf27d.chunk.js.LICENSE.txt"
+    "static/js/2.506ee9cd.chunk.js.LICENSE.txt": "/react-crypto-tracker/static/js/2.506ee9cd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b2e7bc00.js",
-    "static/js/2.e4caf27d.chunk.js",
+    "static/js/2.506ee9cd.chunk.js",
     "static/js/main.d6b8025e.chunk.js"
   ]
 }
