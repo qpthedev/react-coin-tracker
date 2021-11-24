@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "https://qpthedev.github.io/react-crypto-tracker/static/js/main.b095a05b.chunk.js",
-    "main.js.map": "https://qpthedev.github.io/react-crypto-tracker/static/js/main.b095a05b.chunk.js.map",
-    "runtime-main.js": "https://qpthedev.github.io/react-crypto-tracker/static/js/runtime-main.96ef7663.js",
-    "runtime-main.js.map": "https://qpthedev.github.io/react-crypto-tracker/static/js/runtime-main.96ef7663.js.map",
-    "static/js/2.dd59f610.chunk.js": "https://qpthedev.github.io/react-crypto-tracker/static/js/2.dd59f610.chunk.js",
-    "static/js/2.dd59f610.chunk.js.map": "https://qpthedev.github.io/react-crypto-tracker/static/js/2.dd59f610.chunk.js.map",
-    "index.html": "https://qpthedev.github.io/react-crypto-tracker/index.html",
-    "static/js/2.dd59f610.chunk.js.LICENSE.txt": "https://qpthedev.github.io/react-crypto-tracker/static/js/2.dd59f610.chunk.js.LICENSE.txt"
+    "main.js": "/react-crypto-tracker/static/js/main.d6b8025e.chunk.js",
+    "main.js.map": "/react-crypto-tracker/static/js/main.d6b8025e.chunk.js.map",
+    "runtime-main.js": "/react-crypto-tracker/static/js/runtime-main.b2e7bc00.js",
+    "runtime-main.js.map": "/react-crypto-tracker/static/js/runtime-main.b2e7bc00.js.map",
+    "static/js/2.e4caf27d.chunk.js": "/react-crypto-tracker/static/js/2.e4caf27d.chunk.js",
+    "static/js/2.e4caf27d.chunk.js.map": "/react-crypto-tracker/static/js/2.e4caf27d.chunk.js.map",
+    "index.html": "/react-crypto-tracker/index.html",
+    "static/js/2.e4caf27d.chunk.js.LICENSE.txt": "/react-crypto-tracker/static/js/2.e4caf27d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.96ef7663.js",
-    "static/js/2.dd59f610.chunk.js",
-    "static/js/main.b095a05b.chunk.js"
+    "static/js/runtime-main.b2e7bc00.js",
+    "static/js/2.e4caf27d.chunk.js",
+    "static/js/main.d6b8025e.chunk.js"
   ]
 }
