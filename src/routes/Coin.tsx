@@ -217,7 +217,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Current Price (USD): </span>
-              <span>${tickersData?.quotes.USD.price.toFixed(2)}</span>
+              <span>${tickersData?.quotes?.USD?.price?.toFixed(2)}</span>
             </OverviewItem>
           </Overview>
 
