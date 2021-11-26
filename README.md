@@ -8,3 +8,4 @@ Simple cryptocurrency price tracker made with React
 - Routing with React Router
 - Data fetching with React Query
 - Data visualizaton with Apex Charts
+- State management with Recoil
